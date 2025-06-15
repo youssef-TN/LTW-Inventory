@@ -10,6 +10,10 @@ import {
   Plus,
   ChevronRight,
   RefreshCw,
+  RotateCw,
+  Settings,
+  Upload,
+  Import,
 } from "lucide-react";
 
 import {
@@ -43,16 +47,31 @@ interface ActionsType {
 
 export default function index() {
   const { t } = useTranslation();
-  const filterOptions = t("pages.inventory.items.filter.options").split(";");
-  const sortOptions = t("pages.inventory.items.actions.sort.options").split(
-    ";"
-  );
-  const importOptions = t("pages.inventory.items.actions.import.options").split(
-    ";"
-  );
-  const exportOptions = t("pages.inventory.items.actions.export.options").split(
-    ";"
-  );
+  const filterOptions = [
+    t("pages.inventory.items.filters.allItems"),
+    t("pages.inventory.items.filters.activeItems"),
+    t("pages.inventory.items.filters.ungroupedItems"),
+    t("pages.inventory.items.filters.lowStockItems"),
+    t("pages.inventory.items.filters.sales"),
+    t("pages.inventory.items.filters.allItems"),
+    t("pages.inventory.items.filters.purchases"),
+    t("pages.inventory.items.filters.inventoryItems"),
+    t("pages.inventory.items.filters.nonInventoryItems"),
+    t("pages.inventory.items.filters.services"),
+    t("pages.inventory.items.filters.inactiveItems"),
+    t("pages.inventory.items.filters.binTrackedItems"),
+    t("pages.inventory.items.filters.returnableItems"),
+    t("pages.inventory.items.filters.nonReturnableItems"),
+  ];
+
+  const importOptions = [
+    t("pages.inventory.items.actions.import.options.items"),
+    t("pages.inventory.items.actions.import.options.images"),
+  ];
+  const exportOptions = [
+    t("pages.inventory.items.actions.export.options.items"),
+    t("pages.inventory.items.actions.export.options.currentView"),
+  ];
   const [actions, setActions] = useState<ActionsType>({
     filter: 0,
     sort: 0,
@@ -98,11 +117,7 @@ export default function index() {
                 })}
               </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuItem className="w-full text-nowrap">
-                  {t("pages.inventory.items.filter.custom")}
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
+              {/* custom filter */}
             </DropdownMenuContent>
           </DropdownMenu>
           <div className="flex items-center-safe justify-end gap-8">
@@ -116,7 +131,6 @@ export default function index() {
             </div>
             <Button className="bg-blue-400 hover:bg-blue-500">
               <Plus />
-              {t("pages.inventory.items.newItem.display")}
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -128,7 +142,13 @@ export default function index() {
                 <DropdownMenuGroup>
                   <DropdownMenuSub>
                     <DropdownMenuSubTrigger>
-                      {t("pages.inventory.items.actions.import.display")}
+                      <DropdownMenuItem
+                        className="data-[disabled]:opacity-100 px-0 py-0"
+                        disabled
+                      >
+                        <Import className="text-blue-500" />
+                        {t("pages.inventory.items.actions.import.label")}
+                      </DropdownMenuItem>
                     </DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
@@ -149,7 +169,13 @@ export default function index() {
                   </DropdownMenuSub>
                   <DropdownMenuSub>
                     <DropdownMenuSubTrigger>
-                      {t("pages.inventory.items.actions.export.display")}
+                      <DropdownMenuItem
+                        className="data-[disabled]:opacity-100 px-0 py-0"
+                        disabled
+                      >
+                        <Upload className="text-blue-500" />
+                        {t("pages.inventory.items.actions.export.label")}
+                      </DropdownMenuItem>
                     </DropdownMenuSubTrigger>
                     <DropdownMenuPortal>
                       <DropdownMenuSubContent>
@@ -172,21 +198,21 @@ export default function index() {
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    {t("pages.inventory.items.actions.preferences.display")}
+                    <Settings className="text-blue-500" />
+                    {t("pages.inventory.items.actions.preferences")}
                     {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    {t("pages.inventory.items.actions.refresh.display")}
+                    <RotateCw className="text-blue-500" />
+                    {t("pages.inventory.items.actions.refresh")}
                     {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <RefreshCw className="text-blue-500" />
-                    {t(
-                      "pages.inventory.items.actions.resetColumnWidth.display"
-                    )}
+                    {t("pages.inventory.items.actions.resetColumnWidth")}
                     {/* <DropdownMenuShortcut>⌘B</DropdownMenuShortcut> */}
                   </DropdownMenuItem>
                 </DropdownMenuGroup>

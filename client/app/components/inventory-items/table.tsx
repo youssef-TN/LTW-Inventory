@@ -110,22 +110,22 @@ export const useItemColumns = (): ColumnDef<Item>[] => {
   return [
     {
       accessorKey: ids.field.id,
-      header: t("pages.inventory.items.columns.id.display"),
+      header: t("common.labels.id"),
     },
     {
       accessorKey: ids.field.type,
-      header: t("pages.inventory.items.columns.type.display"),
+      header: t("common.labels.type"),
       cell: ({ row }) => (
         <div className="capitalize">{row.getValue(ids.field.type)}</div>
       ),
     },
     {
       accessorKey: ids.field.name,
-      header: t("pages.inventory.items.columns.name.display"),
+      header: t("common.labels.name"),
     },
     {
       accessorKey: ids.field.unit,
-      header: t("pages.inventory.items.columns.unit.display"),
+      header: t("common.labels.unit"),
     },
     {
       accessorFn: (original) => {
@@ -137,7 +137,7 @@ export const useItemColumns = (): ColumnDef<Item>[] => {
         } ${dims[ids.field.unit]}`;
       },
       id: ids.field.dimensions,
-      header: t("pages.inventory.items.columns.dimensions.display"),
+      header: t("common.labels.dimensions"),
     },
     {
       accessorFn: (original) => {

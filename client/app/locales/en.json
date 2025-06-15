@@ -2,7 +2,7 @@
   "common": {
     "actions": {
       "create": "Create",
-      "edit": "Edit", 
+      "edit": "Edit",
       "delete": "Delete",
       "save": "Save",
       "cancel": "Cancel",
@@ -15,6 +15,7 @@
       "close": "Close"
     },
     "labels": {
+      "id": "ID",
       "name": "Name",
       "description": "Description",
       "status": "Status",
@@ -22,7 +23,17 @@
       "type": "Type",
       "quantity": "Quantity",
       "price": "Price",
-      "total": "Total"
+      "total": "Total",
+      "unit": "Unit",
+      "brand": "Brand",
+      "account": "Account",
+      "tax": "Tax"
+    },
+    "dimensions": {
+      "length": "Length",
+      "width": "Width",
+      "height": "Height",
+      "weight": "Weight"
     },
     "status": {
       "active": "Active",
@@ -167,7 +178,7 @@
           }
         }
       },
-      "messages":{
+      "messages": {
         "welcome": "Hello,"
       }
     },
@@ -220,84 +231,56 @@
           "inactiveItems": "Inactive Items",
           "binTrackedItems": "Bin Tracked Items",
           "returnableItems": "Returnable Items",
-          "nonReturnableItems": "Non Returnable Items",
-          "customView": "New Custom View"
+          "nonReturnableItems": "Non Returnable Items"
         },
         "columns": {
-          "id": "ID",
-          "name": "Name",
-          "type": "Type",
-          "unit": "Unit",
           "returnableItem": "Returnable Item",
-          "dimensions": "Dimensions",
-          "brand": "Brand"
+          "dimensions": "Dimensions"
         },
         "types": {
           "storable": "Inventory Items",
           "consumable": "Non-Inventory Items",
           "service": "Service"
         },
-        "form": {
-          "title": "Item",
-          "sections": {
-            "basic": {
-              "name": "Name",
-              "description": "Description",
-              "type": "Type",
-              "unit": "Unit",
-              "brand": "Brand",
-              "status": "Status"
-            },
-            "dimensions": {
-              "title": "Dimensions",
-              "length": "Length",
-              "width": "Width",
-              "height": "Height",
-              "weight": "Weight"
-            },
-            "sales": {
-              "title": "Sales Information",
-              "sellingPrice": "Selling Price",
-              "account": "Account",
-              "tax": "Tax"
-            },
-            "purchase": {
-              "title": "Purchase Information",
-              "costPrice": "Cost Price"
-            },
-            "inventory": {
-              "stockOnHand": "Stock On Hand",
-              "reorderLevel": "Reorder Level"
-            }
-          },
-          "settings": {
-            "fieldName": "Field Name",
-            "dataType": {
-              "label": "Data Type",
-              "options": {
-                "textInput": "Text Input",
-                "email": "Email",
-                "number": "Number",
-                "decimal": "Decimal",
-                "url": "URL",
-                "phone": "Phone",
-                "amount": "Amount",
-                "percent": "Percent",
-                "date": "Date",
-                "dateTime": "Date and Time",
-                "checkBox": "Check Box",
-                "dropdown": "Dropdown",
-                "multiSelect": "Multi Select",
-                "autoGenerateNumber": "Auto Generate Number",
-                "textArea": "Text Area",
-                "attachment": "Attachment"
-              }
-            },
-            "required": "Required",
-            "showAllInPDF": "Show All in PDF",
-            "status": "Status"
-          }
+        "sales": {
+          "title": "Sales Information",
+          "sellingPrice": "Selling Price"
+        },
+        "purchase": {
+          "title": "Purchase Information",
+          "costPrice": "Cost Price"
+        },
+        "inventory": {
+          "stockOnHand": "Stock On Hand",
+          "reorderLevel": "Reorder Level"
         }
+      },
+      "settings": {
+        "fieldName": "Field Name",
+        "dataType": {
+          "label": "Data Type",
+          "options": {
+            "textInput": "Text Input",
+            "email": "Email",
+            "number": "Number",
+            "decimal": "Decimal",
+            "url": "URL",
+            "phone": "Phone",
+            "amount": "Amount",
+            "percent": "Percent",
+            "date": "Date",
+            "dateTime": "Date and Time",
+            "checkBox": "Check Box",
+            "dropdown": "Dropdown",
+            "multiSelect": "Multi Select",
+            "autoGenerateNumber": "Auto Generate Number",
+            "textArea": "Text Area",
+            "attachment": "Attachment"
+          }
+        },
+        "required": "Required",
+        "showAllInPDF": "Show All in PDF",
+        "status": "Status"
       }
     }
   },
