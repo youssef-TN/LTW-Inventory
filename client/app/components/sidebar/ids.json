@@ -1,0 +1,37 @@
+{
+	"main":{
+		"home":"home",
+		"inventory":"inventory",
+		"sales":"sales",
+		"purchases":"purchases",
+		"reports":"reports"
+	},
+	"inventory":{
+
+		"items":"items",
+		"itemGroups":"item-groups",
+		"priceLists":"price-lists",
+		"adjustments":"inventory-adjustments"
+	},
+	"sales":{
+		"customers":"customers",
+		"orders":"sales-orders",
+		"packages":"packages",
+		"shipments":"shipments",
+		"invoices":"invoices",
+		"receipts":"sales-receipts",
+		"payments":"payments-received",
+		"returns":"sales-returns",
+		"creditNotes":"credit-notes"
+	},
+	"purchases":{
+		"vendors":"vendors",
+		"expenses":"expenses",
+		"orders":"purchases-orders",
+		"receives":"purchases-receives",
+		"bills":"bills",
+		"payments":"payments-made",
+		"credits":"vendor-credits"
+	},
+	"reports":"reports"
+}

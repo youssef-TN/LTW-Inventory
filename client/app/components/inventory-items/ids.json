@@ -1,0 +1,26 @@
+{
+  "field": {
+    "id": "id",
+    "type": "type",
+    "name": "name",
+    "unit": "unit",
+    "returnableItem": "returnable-item",
+    "brand": "brand",
+    "dimensions": "dimensions",
+    "length": "length",
+    "width": "width",
+    "height": "height",
+    "value": "value",
+    "weight": "weight",
+    "salesInformation": "sales-information",
+    "sellingPrice": "selling-price",
+    "purchaseInformation": "purchase-information",
+    "costPrice": "cost-price",
+    "account": "account",
+    "description": "description",
+    "tax": "tax",
+    "stockOnHand": "stock-on-hand",
+    "reorderLevel": "reorder-level",
+	"status":"status"
+  }
+}
