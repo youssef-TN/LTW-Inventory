@@ -27,7 +27,9 @@
       "unit": "Unit",
       "brand": "Brand",
       "account": "Account",
-      "tax": "Tax"
+      "tax": "Tax",
+      "returnableItem": "Returnable Item",
+      "dimensions": "Dimensions"
     },
     "dimensions": {
       "length": "Length",
@@ -232,10 +234,6 @@
           "binTrackedItems": "Bin Tracked Items",
           "returnableItems": "Returnable Items",
           "nonReturnableItems": "Non Returnable Items"
-        },
-        "columns": {
-          "returnableItem": "Returnable Item",
-          "dimensions": "Dimensions"
         },
         "types": {
           "storable": "Inventory Items",

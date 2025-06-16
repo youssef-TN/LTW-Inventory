@@ -1,4 +1,5 @@
 // components/sidebar/index.tsx
+"use client";
 
 import { Command } from "lucide-react";
 import {

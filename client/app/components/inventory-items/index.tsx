@@ -34,7 +34,7 @@ import { SidebarInset, SidebarProvider } from "~/components/ui/sidebar";
 import sidebarIds from "~/components/sidebar/ids.json";
 import SidebarComponent from "~/components/sidebar/index";
 import { Button } from "~/components/ui/button";
-import { DataTableDemo } from "~/components/inventory-items/table";
+import DataTable from "~/components/inventory-items/table";
 import { cn } from "~/lib/utils";
 
 interface ActionsType {
@@ -221,7 +221,7 @@ export default function index() {
           </div>
         </header>
         <main>
-          <DataTableDemo />
+          <DataTable />
         </main>
       </SidebarInset>
     </SidebarProvider>

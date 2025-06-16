@@ -52,10 +52,6 @@ export type Item = {
     [ids.field.height]: number;
     [ids.field.unit]: string;
   };
-  [ids.field.weight]: {
-    [ids.field.value]: number;
-    [ids.field.unit]: string;
-  };
   [ids.field.brand]: string;
   [ids.field.salesInformation]: {
     [ids.field.sellingPrice]: number;
@@ -140,22 +136,12 @@ export const useItemColumns = (): ColumnDef<Item>[] => {
       header: t("common.labels.dimensions"),
     },
     {
-      accessorFn: (original) => {
-        const weight = original[ids.field.weight] as {
-          [key: string]: string | number;
-        };
-        `${weight[ids.field.value]} ${weight[ids.field.unit]}`;
-      },
-      id: ids.field.weight,
-      header: t("pages.inventory.items.columns.weight.display"),
-    },
-    {
       accessorKey: ids.field.brand,
-      header: t("pages.inventory.items.columns.brand.display"),
+      header: t("common.labels.brand"),
     },
     {
       accessorKey: `${ids.field.salesInformation}.${ids.field.sellingPrice}`,
-      header: "Selling Price",
+      header: t("pages.inventory.items.sales.sellingPrice"),
       cell: ({ row }) => (
         <div className="text-right">
           $
@@ -166,26 +152,32 @@ export const useItemColumns = (): ColumnDef<Item>[] => {
       ),
     },
     {
-      accessorKey: `${ids.field.purchaseInformation}.${ids.field.costPrice}`,
-      header: "Cost Price",
+      accessorFn: (original) => {
+        const purchaseInfo = original[ids.field.purchaseInformation] as {
+          [key: string]: string | number;
+        };
+        console.log("purchaseInfo", purchaseInfo);
+        return purchaseInfo[ids.field.costPrice];
+      },
+      header: t("pages.inventory.items.purchase.costPrice"),
       cell: ({ row }) => (
         <div className="text-right">
           $
-          {row.getValue(
-            `${ids.field.purchaseInformation}.${ids.field.costPrice}`
-          )}
+          {row.getValue(ids.field.costPrice)}
         </div>
       ),
     },
     {
       accessorKey: ids.field.stockOnHand,
-      header: "Stock On Hand",
+      header: t("pages.inventory.items.inventory.stockOnHand"),
       cell: ({ row }) => <div>{row.getValue(ids.field.stockOnHand)}</div>,
     },
   ];
 };
 
-export function DataTableDemo() {
+export default function component() {
+  const { t } = useTranslation();
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -193,10 +185,10 @@ export function DataTableDemo() {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
-
+  const columns= useItemColumns()
   const table = useReactTable({
     data,
-    columns: useItemColumns(),
+    columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -216,18 +208,18 @@ export function DataTableDemo() {
   return (
     <div className="w-full">
       <div className="flex items-center py-4">
-        <Input
+        {/* <Input
           placeholder="Filter emails..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("email")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
-        />
+        /> */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown />
+              {t("pages.inventory.items.actions.customizeColumns")} <ChevronDown />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

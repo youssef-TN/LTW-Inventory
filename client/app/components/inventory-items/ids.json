@@ -10,8 +10,6 @@
     "length": "length",
     "width": "width",
     "height": "height",
-    "value": "value",
-    "weight": "weight",
     "salesInformation": "sales-information",
     "sellingPrice": "selling-price",
     "purchaseInformation": "purchase-information",
@@ -21,6 +19,6 @@
     "tax": "tax",
     "stockOnHand": "stock-on-hand",
     "reorderLevel": "reorder-level",
-	"status":"status"
+    "status": "status"
   }
 }
